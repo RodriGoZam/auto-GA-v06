@@ -1,6 +1,7 @@
 package uitesting.upb.org.handlewebsite;
 
 import uitesting.upb.org.managefile.PropertyAccesor;
+import uitesting.upb.org.managepage.MyWallet.CrearWallet;
 import uitesting.upb.org.managepage.google.home.Home;
 import uitesting.upb.org.webdrivermanager.DriverManager;
 
@@ -13,7 +14,14 @@ public class LoadPage {
         return new Home();
     }
 
-    public static void main(String[] args) {
+    public static CrearWallet loadGoogleWallet(){
+        DriverManager.getInstance().getWebDriver().navigate().to(PropertyAccesor.getInstance().getBaseURL());
+        return new CrearWallet();
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
         loadGoogleHome().searchTextAndClickSearchButton("UPB cochabamba");
+        //loadGoogleWallet().AddNewWallet("Banco");
     }
 }

@@ -11,7 +11,7 @@ import uitesting.upb.org.managepage.BasePage;
  */
 public class Home extends BasePage {
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//*[@id=\"tsf\"]/div[2]/div/div[1]/div/div[1]/input")
     private WebElement searchTextField;
 
     @FindBy(css = "")
@@ -27,6 +27,11 @@ public class Home extends BasePage {
     }
 
     public void searchTextAndClickSearchButton(String text){
+
         searchText(text).clickSearchButton();
+    }
+
+    public boolean isSearchFieldVisible(){
+        return Events.isVisibleWebElement(searchTextField);
     }
 }
