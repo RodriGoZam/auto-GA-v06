@@ -9,7 +9,7 @@ import uitesting.upb.org.managepage.google.home.Home;
 
 public class GoogleHomeStepdefs {
     private Home home;
-    @Given("^Google page is loaded$")
+    @Given("^My Wallet page is loaded$")
     public void googlePageIsLoaded() {
         home = LoadPage.loadGoogleHome();
     }

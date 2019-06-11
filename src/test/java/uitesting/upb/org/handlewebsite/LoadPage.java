@@ -14,14 +14,15 @@ public class LoadPage {
         return new Home();
     }
 
-    public static CrearWallet loadGoogleWallet(){
+    public static Header loadGoogleWallet(){
         DriverManager.getInstance().getWebDriver().navigate().to(PropertyAccesor.getInstance().getBaseURL());
-        return new CrearWallet();
+        return new Header();
     }
+
 
     public static void main(String[] args) throws InterruptedException {
 
-        loadGoogleHome().searchTextAndClickSearchButton("UPB cochabamba");
+        //loadGoogleHome().searchTextAndClickSearchButton("UPB cochabamba");
         //loadGoogleWallet().AddNewWallet("Banco");
     }
 }

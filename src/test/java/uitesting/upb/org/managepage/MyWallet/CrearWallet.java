@@ -13,7 +13,7 @@ public class CrearWallet extends BasePage {
     @FindBy(css = "//*[@id=\"botonReporte\"]")
     private WebElement ClickAddCuenta;*/
 
-    @FindBy(xpath = "//*[@id=\"nombre\"]")
+    @FindBy(xpath = "//*[@id=\"nombreCrearCuenta\"]")
     private WebElement WalletNameTextField;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div/main/div/div/div/form/div[2]/div/button")
@@ -25,6 +25,14 @@ public class CrearWallet extends BasePage {
     @FindBy(xpath = "//*[@id=\"app\"]/div[10]/main/div/div/nav/aside/div[1]/div[2]/a/div[2]")
     private WebElement ClickAccount;
 
+    @FindBy(xpath = "//*[@id=\"botonIngreso\"]")
+    private WebElement IngresoButton;
+
+    @FindBy(xpath = "//*[@id=\"crearCuentaNav\"]")
+    private WebElement CrearCuentaButton;
+
+
+
 
 
 
@@ -34,7 +42,7 @@ public class CrearWallet extends BasePage {
         Thread.sleep(1000);
         return this;
     }
-
+    public void ClickCrearCuenta() { Events.click(CrearCuentaButton);}
     public void ClickCrearWallet() {
         Events.click(CreateWalletButton);
     }
@@ -49,12 +57,13 @@ public class CrearWallet extends BasePage {
 
 
     public void AddNewWallet(String name) throws InterruptedException {
-        InsertNameTextField(name).ClickCrearWallet();
+        InsertNameTextField(name);
         Thread.sleep(1000);
-        ClickNavBar();
-        Thread.sleep(1000);
-        ClickAccount();
+        ClickCrearWallet();
 
     }
 
+    public boolean isIngresoButtonVisible() {
+        return Events.isVisibleWebElement(IngresoButton);
+    }
 }
